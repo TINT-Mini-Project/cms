@@ -5,7 +5,6 @@
  */
 package Frames;
 import connection.DBManager;
-import java.awt.Color;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,16 +14,15 @@ import javax.swing.JOptionPane;
  *
  * @author ADITYA N SAH
  */
-public class NewBook extends javax.swing.JFrame {
+public class EditInstructor extends javax.swing.JFrame {
 
-    String title = "New Book";
+    String title = "Edit Instructor";
     /**
      * Creates new form NewBook
      */
-    public NewBook() {
+    public EditInstructor() {
         initComponents();
         this.setTitle(title);
-        this. getContentPane().setBackground(Color.WHITE);
     }
 
     /**
@@ -41,38 +39,36 @@ public class NewBook extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Product Sans", 0, 14)); // NOI18N
-        jLabel2.setText("Title");
+        jLabel2.setText("Name");
 
         jTextField1.setFont(new java.awt.Font("Product Sans", 0, 14)); // NOI18N
-        jTextField1.setText("New Book");
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Product Sans", 0, 14)); // NOI18N
-        jLabel3.setText("Author");
+        jLabel3.setText("Phone");
 
         jTextField2.setFont(new java.awt.Font("Product Sans", 0, 14)); // NOI18N
 
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Product Sans", 0, 14)); // NOI18N
-        jLabel4.setText("Publisher");
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Product Sans", 0, 14)); // NOI18N
+        jLabel5.setText("ID");
 
-        jTextField3.setFont(new java.awt.Font("Product Sans", 0, 14)); // NOI18N
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        jTextField4.setFont(new java.awt.Font("Product Sans", 0, 14)); // NOI18N
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                jTextField4ActionPerformed(evt);
             }
         });
 
@@ -87,7 +83,7 @@ public class NewBook extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Product Sans", 1, 14)); // NOI18N
-        jButton2.setText("Add");
+        jButton2.setText("Apply");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -101,23 +97,30 @@ public class NewBook extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                            .addComponent(jTextField4))
+                        .addGap(207, 207, 207))
                     .addComponent(jTextField2)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField3)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 218, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -125,15 +128,11 @@ public class NewBook extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(106, 106, 106))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -146,18 +145,14 @@ public class NewBook extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 221, Short.MAX_VALUE)
+            .addGap(0, 236, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -167,29 +162,33 @@ public class NewBook extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
         try {
-            String title = jTextField1.getText();
-            String author = jTextField2.getText();
-            String publisher = jTextField3.getText();
+            String name = jTextField1.getText();
+            String phone = jTextField2.getText();
+            int id = Integer.parseInt(jTextField4.getText());
             
             Connection con = DBManager.getConnection();
-            PreparedStatement query = con.prepareStatement("INSERT INTO Books (Title, Author, Publisher) VALUES(?, ?, ?)");
-            query.setString(1, title);
-            query.setString(2, author);
-            query.setString(3, publisher);
+            PreparedStatement query = con.prepareStatement("UPDATE Instructors SET Name = ?, Phone = ? WHERE ID = ?");
+            query.setString(1, name);
+            query.setString(2, phone);
+            query.setInt(3, id);
             
             int i = query.executeUpdate();
             if(i == 1){
-                JOptionPane.showMessageDialog(null, i + " Book Added!");
+                JOptionPane.showMessageDialog(null, i + " Instructor info Edited!");
                 dispose();
             }
             else
-                JOptionPane.showMessageDialog(null, "Failed to add book!");
-            } catch (SQLException | ClassNotFoundException ex) {
-                Logger.getLogger(NewBook.class.getName()).log(Level.SEVERE, null, ex);
-
-                JOptionPane.showMessageDialog(null, "Unsuccessful!");
+                JOptionPane.showMessageDialog(null, "No such ID exists!");
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(NewBook.class.getName()).log(Level.SEVERE, null, ex);
+            
+            JOptionPane.showMessageDialog(null, "Unsuccessful!");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,10 +230,10 @@ public class NewBook extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }

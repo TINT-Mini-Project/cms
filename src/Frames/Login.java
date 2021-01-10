@@ -5,6 +5,7 @@
  */
 package Frames;
 
+import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.*;
 import javax.swing.*;
 
@@ -14,13 +15,16 @@ import javax.swing.*;
  */
 public class Login extends javax.swing.JFrame {
 
+    String title = "Course Managment - Login";
     /**
      * Creates new form Login
      */
     public Login() {
         this.initComponents();
+        this.setTitle(title);
+        this. getContentPane().setBackground(Color.WHITE);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        getContentPane().setBackground(Color.WHITE);
+        FlatLightLaf.install();
     }
 
     /**
@@ -160,9 +164,15 @@ public class Login extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+//        try {
+//            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+//        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            UIManager.setLookAndFeel( new FlatLightLaf() );
+        } catch( UnsupportedLookAndFeelException ex ) {
+            System.err.println( "Failed to initialize LaF" );
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>

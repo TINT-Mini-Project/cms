@@ -12,6 +12,7 @@
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <Events>
+    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="formFocusGained"/>
     <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="formComponentShown"/>
   </Events>
   <AuxValues>
@@ -382,6 +383,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Edit"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

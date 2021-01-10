@@ -16,11 +16,13 @@ import javax.swing.JOptionPane;
  */
 public class NewInstructor extends javax.swing.JFrame {
 
+    String title = "New Instructor";
     /**
      * Creates new form NewBook
      */
     public NewInstructor() {
         initComponents();
+        this.setTitle(title);
     }
 
     /**
@@ -33,7 +35,6 @@ public class NewInstructor extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -43,12 +44,9 @@ public class NewInstructor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Product Sans", 1, 24)); // NOI18N
-        jLabel1.setText("New Instructor");
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Product Sans", 0, 14)); // NOI18N
@@ -92,13 +90,12 @@ public class NewInstructor extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextField1)
                     .addComponent(jTextField2)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 222, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -108,8 +105,6 @@ public class NewInstructor extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -128,21 +123,11 @@ public class NewInstructor extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 434, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 244, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -166,13 +151,16 @@ public class NewInstructor extends javax.swing.JFrame {
             query.setString(2, phone);
             
             int i = query.executeUpdate();
-            JOptionPane.showMessageDialog(null, i + " Instructor Added!");
-        } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(NewBook.class.getName()).log(Level.SEVERE, null, ex);
-            
-            JOptionPane.showMessageDialog(null, "Unsuccessful!");
-        } finally {
-            dispose();
+            if(i == 1){
+                JOptionPane.showMessageDialog(null, i + " Instructor Added!");
+                dispose();
+            }
+            else
+                JOptionPane.showMessageDialog(null, "Failed to add Instructor!");
+            } catch (SQLException | ClassNotFoundException ex) {
+                Logger.getLogger(NewBook.class.getName()).log(Level.SEVERE, null, ex);
+
+                JOptionPane.showMessageDialog(null, "Unsuccessful!");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -218,7 +206,6 @@ public class NewInstructor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

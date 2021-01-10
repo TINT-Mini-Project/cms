@@ -5,10 +5,13 @@
  */
 package Frames;
 
+import com.formdev.flatlaf.FlatLightLaf;
 import connection.DBManager;
+import java.awt.Color;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -16,12 +19,18 @@ import net.proteanit.sql.DbUtils;
  * @author ADITYA N SAH
  */
 public class Dashboard extends javax.swing.JFrame {
-
+    
+    String title = "Course Managment - Dashboard";
+    
     /**
      * Creates new form Dashboard
      */
     public Dashboard() {
         initComponents();
+        this.setTitle(title);
+        this. getContentPane().setBackground(Color.WHITE);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        FlatLightLaf.install();
     }
 
     /**
@@ -58,6 +67,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formFocusGained(evt);
+            }
+        });
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
@@ -213,6 +227,11 @@ public class Dashboard extends javax.swing.JFrame {
         jButton8.setBackground(new java.awt.Color(255, 255, 255));
         jButton8.setFont(new java.awt.Font("Product Sans", 1, 14)); // NOI18N
         jButton8.setText("Edit");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -385,6 +404,16 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
         new EditBook().setVisible(true);
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        new EditInstructor().setVisible(true);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+        // TODO add your handling code here:
+        updateTable();
+    }//GEN-LAST:event_formFocusGained
 
     /**
      * @param args the command line arguments
