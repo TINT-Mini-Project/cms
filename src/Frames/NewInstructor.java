@@ -53,6 +53,7 @@ public class NewInstructor extends javax.swing.JFrame {
         jLabel2.setText("Name");
 
         jTextField1.setFont(new java.awt.Font("Product Sans", 0, 14)); // NOI18N
+        jTextField1.setText("New Instructor");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);

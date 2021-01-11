@@ -19,7 +19,7 @@ public class DBManager {
     
     public static void establishConnection() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection(Const.connection, Const.user, Const.pass);
+        con = DriverManager.getConnection(Const.url, Const.user, Const.pass);
         ConnectionEstablished = true;
     }
     

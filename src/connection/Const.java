@@ -15,5 +15,5 @@ public class Const {
     public final static String db = "cms";
     public static String user = "root";
     public static String pass = "root";
-    public static String connection = "jdbc:mysql://localhost:3306/" + db + "?autoReconnect=true&useSSL=false";
+    public static String url = "jdbc:mysql://localhost:3306/" + db + "?autoReconnect=true&useSSL=false";
 }
