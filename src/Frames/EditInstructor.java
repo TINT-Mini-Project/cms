@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Frames;
-import connection.DBManager;
+import DBConnector.DBCManager;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -166,7 +166,7 @@ public class EditInstructor extends javax.swing.JFrame {
             String phone = jTextField2.getText();
             int id = Integer.parseInt(jTextField4.getText());
             
-            Connection con = DBManager.getConnection();
+            Connection con = DBCManager.getConnection();
             PreparedStatement query = con.prepareStatement("UPDATE Instructors SET Name = ?, Phone = ? WHERE ID = ?");
             query.setString(1, name);
             query.setString(2, phone);

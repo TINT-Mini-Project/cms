@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Frames;
-import connection.DBManager;
+import DBConnector.DBCManager;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -191,7 +191,7 @@ public class EditBook extends javax.swing.JFrame {
             String publisher = jTextField3.getText();
             int id = Integer.parseInt(jTextField4.getText());
             
-            Connection con = DBManager.getConnection();
+            Connection con = DBCManager.getConnection();
             PreparedStatement query = con.prepareStatement("UPDATE Books SET Title = ?, Author = ?, Publisher = ? WHERE ID = ?");
             query.setString(1, title);
             query.setString(2, author);

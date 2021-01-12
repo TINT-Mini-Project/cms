@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Frames;
-import connection.DBManager;
+import DBConnector.DBCManager;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -146,7 +146,7 @@ public class NewInstructor extends javax.swing.JFrame {
             String name = jTextField1.getText();
             String phone = jTextField2.getText();
             
-            Connection con = DBManager.getConnection();
+            Connection con = DBCManager.getConnection();
             PreparedStatement query = con.prepareStatement("INSERT INTO Instructors (Name, Phone) VALUES(?, ?)");
             query.setString(1, name);
             query.setString(2, phone);

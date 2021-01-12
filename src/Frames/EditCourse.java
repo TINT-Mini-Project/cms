@@ -5,7 +5,8 @@
  */
 package Frames;
 
-import connection.DBManager;
+import DBConnector.DBCManager;
+import java.awt.Color;
 import java.sql.*;
 import java.util.*;
 import java.util.logging.Level;
@@ -18,12 +19,15 @@ import javax.swing.JOptionPane;
  */
 public class EditCourse extends javax.swing.JFrame {
 
+    String title = "Edit Course";
     /**
      * Creates new form NewCourse
      */
     public EditCourse() {
         initComponents();
         updateJcomboBox();
+        this.setTitle(title);
+        this. getContentPane().setBackground(Color.WHITE);
     }
 
     private void updateJcomboBox(){
@@ -32,7 +36,7 @@ public class EditCourse extends javax.swing.JFrame {
         jComboBox2.removeAllItems();
         
         try {
-            Connection con = DBManager.getConnection();
+            Connection con = DBCManager.getConnection();
             PreparedStatement query1 = con.prepareStatement("SELECT Name FROM Instructors");
             ResultSet rs1 = query1.executeQuery();
             
@@ -203,7 +207,7 @@ public class EditCourse extends javax.swing.JFrame {
             int instructor = jComboBox1.getSelectedIndex() + 1;
             int book = jComboBox2.getSelectedIndex() + 1;
             
-            Connection con = DBManager.getConnection();
+            Connection con = DBCManager.getConnection();
             PreparedStatement query = con.prepareStatement("UPDATE Courses SET Name = ?, Instructor = ?, Book = ? WHERE ID = ?");
             query.setString(1, name);
             query.setInt(2, instructor);

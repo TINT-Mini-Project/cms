@@ -12,10 +12,4 @@ package Frames;
 public class Const {
     public static String user = "admin";
     public static String pass = "admin";
-    private static int bookID = 0;
-    
-    public static int getBookID(){
-        bookID++;
-        return bookID;
-    }
 }

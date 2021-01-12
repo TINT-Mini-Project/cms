@@ -1,4 +1,4 @@
-package connection;
+package DBConnector;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,7 +12,7 @@ import java.sql.*;
  *
  * @author ADITYA N SAH
  */
-public class DBManager {
+public class DBCManager {
     
     public static Connection con = null;
     private static boolean ConnectionEstablished = false;

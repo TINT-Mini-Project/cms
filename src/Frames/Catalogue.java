@@ -6,7 +6,7 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
 import java.sql.*;
-import connection.DBManager;
+import DBConnector.DBCManager;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,7 +23,7 @@ public class Catalogue {
             } catch (Exception ex) {
             }
             
-            JFrame frame = new JFrame("Test");
+            JFrame frame = new JFrame("Course Management - Catalogue");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.add(new TestPane());
             frame.pack();
@@ -42,17 +42,31 @@ public class Catalogue {
             setLayout(new BorderLayout());
 
             mainList = new JPanel(new GridBagLayout());
+            mainList.setBackground(Color.WHITE);
             GridBagConstraints gbc = new GridBagConstraints();
             gbc.gridwidth = GridBagConstraints.REMAINDER;
             gbc.weightx = 1;
             gbc.weighty = 1;
             mainList.add(new JPanel(), gbc);
             add(new JScrollPane(mainList));
+            
+            JPanel panel = new JPanel();
+            panel.setBackground(Color.WHITE);
+            panel.add(new Header());
+            panel.setBorder(new MatteBorder(0, 0, 1, 0, Color.GRAY));
+            GridBagConstraints gbc1 = new GridBagConstraints();
+            gbc1.gridwidth = GridBagConstraints.REMAINDER;
+            gbc1.weightx = 1;
+            gbc1.fill = GridBagConstraints.VERTICAL;
+            mainList.add(panel, gbc1, 0);
+            validate();
+            repaint();
+            
             try {
-                Connection con = DBManager.getConnection();
+                Connection con = DBCManager.getConnection();
                 PreparedStatement query = con.prepareStatement("SELECT * FROM Courses");
                 ResultSet rs = query.executeQuery();
-                int id = 0;
+                int id = 1;
                 while(rs.next()){
                     int Cid = rs.getInt(1);
                     String Cname = rs.getString(2);
@@ -81,10 +95,11 @@ public class Catalogue {
                     
                     Course c = new Course(Cid, Cname, Iname, Iphone, Btitle, Bauthor, Bpublisher);
                     
-                    JPanel panel = new JPanel();
+                    panel = new JPanel();
+                    panel.setBackground(Color.WHITE);
                     panel.add(new CourseTemplate(c));
                     panel.setBorder(new MatteBorder(0, 0, 1, 0, Color.GRAY));
-                    GridBagConstraints gbc1 = new GridBagConstraints();
+                    gbc1 = new GridBagConstraints();
                     gbc1.gridwidth = GridBagConstraints.REMAINDER;
                     gbc1.weightx = 1;
                     gbc1.fill = GridBagConstraints.VERTICAL;

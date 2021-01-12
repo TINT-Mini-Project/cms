@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Frames;
-import connection.DBManager;
+import DBConnector.DBCManager;
 import java.awt.Color;
 import java.sql.*;
 import java.util.logging.Level;
@@ -171,7 +171,7 @@ public class NewBook extends javax.swing.JFrame {
             String author = jTextField2.getText();
             String publisher = jTextField3.getText();
             
-            Connection con = DBManager.getConnection();
+            Connection con = DBCManager.getConnection();
             PreparedStatement query = con.prepareStatement("INSERT INTO Books (Title, Author, Publisher) VALUES(?, ?, ?)");
             query.setString(1, title);
             query.setString(2, author);
