@@ -1,4 +1,4 @@
-![Banner](iImages/banner.png)
+![Banner](images/banner.png)
 # Course Managment System
 
 Required
