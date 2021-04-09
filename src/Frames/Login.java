@@ -25,6 +25,7 @@ public class Login extends javax.swing.JFrame {
         this. getContentPane().setBackground(Color.WHITE);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         FlatLightLaf.install();
+        java.net.URL url = ClassLoader.getSystemResource("Images/login.png");
     }
 
     /**
